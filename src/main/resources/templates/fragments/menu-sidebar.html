@@ -1,0 +1,71 @@
+<!-- fragments/menu-sidebar.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<body>
+<div class="sidebar" th:fragment="menu-sidebar(activePage)" id="sidebar">
+    <div class="sidebar-header">
+        <button id="toggleSidebar" class="btn btn-toggle">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="logo">
+            <img id="logo-img" th:src="@{/assets/brand/logotipo.svg}" alt="Logo da Odontofast" class="sidebar-logo">
+        </div>
+    </div>
+
+    <nav class="nav flex-column navbarmenu">
+        <!-- Links originais -->
+        <a class="nav-link" th:classappend="${activePage == 'home' ? 'active' : ''}" href="/dentista/home">
+            <i class="bi bi-house-door"></i>
+            <span class="nav-text" th:text="#{menu.home}">Painel Principal</span>
+        </a>
+        <a class="nav-link" th:classappend="${activePage == 'perfil' ? 'active' : ''}" href="/dentista/perfil">
+            <i class="bi bi-person"></i>
+            <span class="nav-text" th:text="#{menu.perfil}">Perfil</span>
+        </a>
+        <a class="nav-link" th:classappend="${activePage == 'agendamentos' ? 'active' : ''}" href="/dentista/agendamentos">
+            <i class="bi bi-calendar"></i>
+            <span class="nav-text" th:text="#{menu.agendamentos}">Agendamentos</span>
+        </a>
+
+        <!-- Administração (visível apenas para admin) -->
+        <a class="nav-link" th:classappend="${activePage == 'admin' ? 'active' : ''}" href="/admin/dashboard" sec:authorize="hasRole('ADMIN')">
+            <i class="bi bi-gear"></i>
+            <span class="nav-text" th:text="#{menu.admin}">Administração</span>
+        </a>
+
+
+        <a class="nav-link" th:classappend="${activePage == 'anamnese-assistente' ? 'active' : ''}" href="dentista/ia/anamnese-assistente">
+            <i class="bi bi-gear"></i>
+            <span class="nav-text" th:text="#{ia.anamnese.assistente.menu}">Assistente de Anamnese</span>
+        </a>
+
+        <!--
+        <li>
+            <a th:href="@{/dentista/ia/anamnese-assistente}">
+                <i class="bi bi-clipboard-pulse"></i> <span th:text="#{ia.anamnese.assistente.titulo}">Assistente de Anamnese</span>
+            </a>
+        </li>
+        -->
+
+        <!-- Link de logout -->
+        <a class="nav-link" th:href="@{/dentista/logout}">
+            <i class="bi bi-box-arrow-right"></i>
+            <span class="nav-text" th:text="#{menu.sair}">Sair</span>
+        </a>
+    </nav>
+    <li sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/admin/dashboard}" th:classappend="${activePage == 'admin'} ? 'active' : ''">
+            <i class="bi bi-gear"></i> <span th:text="#{menu.admin}">Administração</span>
+        </a>
+    </li>
+
+    <!-- Seletor de idioma -->
+    <div class="language-selector-sidebar mt-auto p-3 text-center">
+        <a href="?lang=pt_BR" class="btn btn-sm btn-outline-light mx-1">🇧🇷</a>
+        <a href="?lang=en" class="btn btn-sm btn-outline-light mx-1">🇺🇸</a>
+    </div>
+</div>
+</body>
+</html>

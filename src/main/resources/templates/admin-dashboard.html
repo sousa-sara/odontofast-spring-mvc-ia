@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="fragments/head"></head>
+<body>
+<div class="dashboard">
+    <div th:replace="~{fragments/menu-sidebar :: menu-sidebar(activePage='admin')}"></div>
+    <div class="main-content">
+        <h1>Área Administrativa</h1>
+        <p>Esta página só é acessível por administradores</p>
+    </div>
+    <button sec:authorize="hasRole('ADMIN')" class="btn btn-danger">Excluir</button>
+</div>
+</body>
+</html>

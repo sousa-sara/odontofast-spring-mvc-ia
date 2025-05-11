@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"></head>
+<body>
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Login de Administrador</h1>
+
+        <form th:action="@{/admin/process-login}" method="post">
+            <div class="mb-3">
+                <label for="cro" class="form-label">CRO</label>
+                <input type="text" class="form-control" id="cro" name="cro" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" required />
+            </div>
+
+            <div th:if="${param.error}" class="alert alert-danger mb-3">
+                Credenciais inválidas ou você não tem permissão de administrador.
+            </div>
+
+            <button type="submit" class="btn btn-primary">Entrar como Administrador</button>
+        </form>
+
+        <div class="text-link mt-3">
+            <a href="/" class="btn btn-outline-secondary btn-sm">
+                <i class="bi bi-arrow-left"></i> Voltar para Seleção de Perfil
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

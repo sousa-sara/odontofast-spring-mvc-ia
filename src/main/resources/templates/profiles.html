@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"></head>
+<body>
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Odontofast</h1>
+        <h2 class="text-center mb-4">Selecione o Perfil de Acesso</h2>
+
+        <div class="d-grid gap-3">
+            <a href="/dentista/login" class="btn btn-primary btn-lg">
+                <i class="bi bi-person-badge me-2"></i> Acessar como Dentista
+            </a>
+
+            <a href="/admin/login" class="btn btn-secondary btn-lg">
+                <i class="bi bi-gear me-2"></i> Acessar como Administrador
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+
+<body>
+<div class="dashboard">
+  <div th:replace="~{fragments/menu-sidebar :: menu-sidebar(activePage='ia')}"></div>
+  <div class="main-content">
+    <div>
+      <h1 class="fs-2 mb-4" th:text="#{ia.anamnese.assistente.titulo}">Assistente de Anamnese Personalizada</h1>
+
+      <div class="card p-4 mb-4">
+        <h2 class="titulo" th:text="#{ia.anamnese.assistente.subtitulo}">Insira as informações iniciais do paciente</h2>
+        <form th:action="@{/dentista/ia/gerar-perguntas-anamnese}" method="post">
+          <div class="mb-3">
+            <label for="informacoesIniciais" class="form-label" th:text="#{ia.anamnese.assistente.campo}">Informações Iniciais do Paciente:</label>
+            <textarea class="form-control" id="informacoesIniciais" name="informacoesIniciais" rows="5"
+                      th:placeholder="#{ia.anamnese.assistente.placeholder}"
+                      placeholder="Ex.: Paciente relata sangramento gengival durante escovação e histórico familiar de diabetes. Tem 42 anos e é fumante."
+                      required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" th:text="#{ia.anamnese.assistente.botao}">Gerar Perguntas Complementares</button>
+        </form>
+      </div>
+
+      <div class="card p-4" th:if="${perguntasGeradas != null}">
+        <h2 class="titulo" th:text="#{ia.anamnese.assistente.resultado.titulo}">Perguntas Complementares Sugeridas</h2>
+        <div class="card-body">
+          <h3 th:text="#{ia.anamnese.assistente.resultado.informacoes}">Informações Iniciais:</h3>
+          <p th:text="${informacoesIniciais}" class="mb-4 p-3 bg-light rounded"></p>
+
+          <h3 th:text="#{ia.anamnese.assistente.resultado.perguntas}">Perguntas Recomendadas:</h3>
+          <div th:utext="${perguntasGeradas}" class="p-3 bg-light rounded perguntas-anamnese"></div>
+
+          <div class="mt-4">
+            <button class="btn btn-outline-primary" onclick="window.print()">
+              <i class="bi bi-printer"></i> Imprimir Perguntas
+            </button>
+            <button class="btn btn-outline-success" onclick="copyToClipboard()">
+              <i class="bi bi-clipboard"></i> Copiar para Área de Transferência
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer th:replace="fragments/footer"></footer>
+  </div>
+</div>
+
+<!-- Script para copiar para área de transferência -->
+<script>
+  function copyToClipboard() {
+    const perguntas = document.querySelector('.perguntas-anamnese').innerText;
+    navigator.clipboard.writeText(perguntas).then(() => {
+      alert('Perguntas copiadas para a área de transferência!');
+    });
+  }
+</script>
+</body>
+</html>
