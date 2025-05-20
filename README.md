@@ -95,9 +95,9 @@ bashjava -jar target/*.jar
 <br>
 🔄 Como Configurar a Pipeline
 
-Crie um projeto no Azure DevOps
-Configure uma conexão de serviço chamada 'MyAzureSubscription'
-Adicione este repositório ao Azure DevOps
+Crie um projeto no Azure DevOps<br>
+Configure uma conexão de serviço chamada 'MyAzureSubscription'<br>
+Adicione este repositório ao Azure DevOps<br>
 Configure a pipeline usando o arquivo azure-pipelines.yml existente
 
 <br>
