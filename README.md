@@ -1,4 +1,83 @@
+OdontofastPipeline
+Este repositório contém uma aplicação Java Spring Boot para gerenciamento odontológico (Odontofast) com uma pipeline de CI/CD automatizada no Azure DevOps.
+Visão Geral
+O Odontofast é uma aplicação de gerenciamento odontológico desenvolvida em Java. Este repositório inclui:
 
+Código-fonte da aplicação Java Spring Boot
+Arquivo de configuração da pipeline Azure DevOps (azure-pipelines.yml)
+Documentação do projeto
+
+Pipeline CI/CD
+A pipeline automatizada no Azure DevOps consiste em três estágios principais:
+1. Criação da Infraestrutura (CriarInfra)
+Este estágio provisiona todos os recursos necessários na Azure:
+
+Grupo de recursos na região East US
+Plano de serviço Linux com SKU F1 (gratuito)
+App Service com runtime Java 21
+Servidor SQL com banco de dados S0
+Configuração de regras de firewall para o SQL Server
+
+2. Build da Aplicação (BuildApp)
+Este estágio compila a aplicação Java:
+
+Compila o código usando Maven
+Executa testes unitários
+Empacota a aplicação em um arquivo JAR
+Publica o artefato para uso no estágio de deploy
+
+3. Deploy da Aplicação (DeployApp)
+Este estágio implanta a aplicação no ambiente Azure:
+
+Baixa o artefato compilado
+Implanta o JAR no App Service
+Configura as conexões com o banco de dados SQL Server
+Desabilita o RabbitMQ (não utilizado neste projeto)
+Reinicia a aplicação para aplicar todas as configurações
+
+Gatilhos da Pipeline
+A pipeline é executada automaticamente quando há alterações nas seguintes branches:
+
+main
+master
+minharelease
+
+Variáveis de Ambiente
+A pipeline utiliza diversas variáveis para configurar os recursos:
+
+Informações do estudante (rm552656)
+Nomes de recursos Azure (grupo de recursos, plano de serviço, etc.)
+Configurações do SQL Server (nome, usuário, senha)
+Versão do runtime Java (21)
+
+Pré-requisitos para Execução Local
+
+JDK 21
+Maven
+IDE Java (recomendado: IntelliJ IDEA ou Eclipse)
+Azure CLI (para interagir com recursos Azure)
+
+Como Executar Localmente
+
+Clone este repositório
+Navegue até a pasta raiz do projeto
+Execute mvn clean install para compilar o projeto
+Configure as variáveis de ambiente necessárias
+Execute java -jar target/*.jar para iniciar a aplicação
+
+Como Configurar a Pipeline
+
+Crie um projeto no Azure DevOps
+Configure uma conexão de serviço chamada 'MyAzureSubscription'
+Adicione este repositório ao Azure DevOps
+Configure a pipeline usando o arquivo azure-pipelines.yml existente
+
+Notas Importantes
+
+A pipeline cria um nome único para o SQL Server usando o ID da build
+A aplicação utiliza Spring Data JPA para persistência
+As configurações do banco de dados são aplicadas via variáveis de ambiente
+RabbitMQ está desabilitado nesta configuração
 
 - Arquivo .yaml que usamos para rodar nossa pipeline:
 
