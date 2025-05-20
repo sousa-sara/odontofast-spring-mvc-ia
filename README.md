@@ -76,10 +76,12 @@ Clone este repositório
 bashgit clone https://github.com/seu-usuario/odontofast-pipeline.git
 
 Navegue até a pasta raiz do projeto
-bashcd odontofast-pipeline
+bash
+cd odontofast-pipeline
 
 Execute o Maven para compilar o projeto
-bashmvn clean install
+bash
+mvn clean install
 
 Configure as variáveis de ambiente necessárias
 bashexport SPRING_DATASOURCE_URL=jdbc:sqlserver://localhost:1433;database=odontodb
@@ -99,12 +101,9 @@ Adicione este repositório ao Azure DevOps
 Configure a pipeline usando o arquivo azure-pipelines.yml existente
 
 <br>
-⚠️ Notas Importantes
 
-🆔 A pipeline cria um nome único para o SQL Server usando o ID da build
-💾 A aplicação utiliza Spring Data JPA para persistência
-⚙️ As configurações do banco de dados são aplicadas via variáveis de ambiente
-🐰 RabbitMQ está desabilitado nesta configuração
+
+
 - Arquivo .yaml que usamos para rodar nossa pipeline:
 
 # Trigger: Define quando a pipeline será automaticamente executada
