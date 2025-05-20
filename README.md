@@ -1,4 +1,4 @@
-🦷 OdontofastPipeline 🚀
+🦷 OdontofastPipeline 
 <div align="center">
   <img src="https://img.shields.io/badge/java-21-orange?style=for-the-badge&logo=java" alt="Java 21"/>
   <img src="https://img.shields.io/badge/Spring%20Boot-latest-green?style=for-the-badge&logo=spring-boot" alt="Spring Boot"/>
@@ -18,10 +18,10 @@ O Odontofast é uma aplicação de gerenciamento odontológico desenvolvida em J
 📚 Documentação do projeto<br>
 
 <br>
-🚀 Pipeline CI/CD
+Pipeline CI/CD<br>
 A pipeline automatizada no Azure DevOps consiste em três estágios principais:
 <br>
-🏗️ 1. Criação da Infraestrutura (CriarInfra)
+1. Criação da Infraestrutura (CriarInfra)<br>
 Este estágio provisiona todos os recursos necessários na Azure:
 
 📦 Grupo de recursos na região East US<br>
@@ -31,7 +31,7 @@ Este estágio provisiona todos os recursos necessários na Azure:
 🔒 Configuração de regras de firewall para o SQL Server<br>
 
 <br>
-🛠️ 2. Build da Aplicação (BuildApp)
+2. Build da Aplicação (BuildApp)<br>
 Este estágio compila a aplicação Java:
 
 🔨 Compila o código usando Maven<br>
@@ -40,17 +40,17 @@ Este estágio compila a aplicação Java:
 📤 Publica o artefato para uso no estágio de deploy<br>
 
 <br>
-🚢 3. Deploy da Aplicação (DeployApp)
+3. Deploy da Aplicação (DeployApp)<br>
 Este estágio implanta a aplicação no ambiente Azure:
 
-📥 Baixa o artefato compilado<br>
-🚀 Implanta o JAR no App Service<br>
-⚙️ Configura as conexões com o banco de dados SQL Server<br>
-🔌 Desabilita o RabbitMQ (não utilizado neste projeto)<br>
-🔄 Reinicia a aplicação para aplicar todas as configurações<br>
+Baixa o artefato compilado<br>
+Implanta o JAR no App Service<br>
+Configura as conexões com o banco de dados SQL Server<br>
+Desabilita o RabbitMQ (não utilizado neste projeto)<br>
+Reinicia a aplicação para aplicar todas as configurações<br>
 
 <br>
-⚡ Gatilhos da Pipeline
+⚡ Gatilhos da Pipeline<br>
 A pipeline é executada automaticamente quando há alterações nas seguintes branches:
 
 main
@@ -58,16 +58,16 @@ master
 minharelease
 
 <br>
-🔧 Variáveis de Ambiente
+🔧 Variáveis de Ambiente<br>
 A pipeline utiliza diversas variáveis para configurar os recursos:
 VariávelDescriçãorm552656Informações do estudanteresourceGroup, service-plan, etc.Nomes de recursos Azuresql-server-name, sql-admin-user, etc.Configurações do SQL ServerruntimeVersão do runtime Java (21)
 <br>
 📋 Pré-requisitos para Execução Local
 
-☕ JDK 21
-🛠️ Maven
-💻 IDE Java (recomendado: IntelliJ IDEA ou Eclipse)
-🌐 Azure CLI (para interagir com recursos Azure)
+JDK 21
+Maven
+IDE Java (recomendado: IntelliJ IDEA ou Eclipse)
+Azure CLI (para interagir com recursos Azure)
 
 <br>
 🚀 Como Executar Localmente
