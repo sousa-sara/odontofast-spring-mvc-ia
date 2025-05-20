@@ -24,11 +24,11 @@ A pipeline automatizada no Azure DevOps consiste em três estágios principais:
 🏗️ 1. Criação da Infraestrutura (CriarInfra)
 Este estágio provisiona todos os recursos necessários na Azure:
 
-📦 Grupo de recursos na região East US
-📊 Plano de serviço Linux com SKU F1 (gratuito)
-🌐 App Service com runtime Java 21
-🗄️ Servidor SQL com banco de dados S0
-🔒 Configuração de regras de firewall para o SQL Server
+📦 Grupo de recursos na região East US<br>
+📊 Plano de serviço Linux com SKU F1 (gratuito)<br>
+🌐 App Service com runtime Java 21<br>
+🗄️ Servidor SQL com banco de dados S0<br>
+🔒 Configuração de regras de firewall para o SQL Server<br>
 
 <br>
 🛠️ 2. Build da Aplicação (BuildApp)
