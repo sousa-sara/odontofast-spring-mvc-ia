@@ -119,6 +119,9 @@ DELETE FROM [dbo].[c_op_dentista_roles];
 -- Remover um dentista específico
 DELETE FROM [dbo].[c_op_dentista] WHERE id_dentista=12;
 ```
+
+## Arquitetura
+
 ## Link do Vídeo de Apresentação 
 [Clique aqui]()
 
