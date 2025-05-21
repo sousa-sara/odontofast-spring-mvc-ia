@@ -101,3 +101,12 @@ Adicione este repositório ao Azure DevOps<br>
 Configure a pipeline usando o arquivo azure-pipelines.yml existente
 
 <br>
+
+📋 Scripts para o banco de dados
+
+select * from [dbo].[c_op_dentista];
+select * from [dbo].[c_op_dentista_roles];
+
+delete from [dbo].[c_op_dentista_roles];
+
+delete from [dbo].[c_op_dentista] WHERE id_dentista=12;
