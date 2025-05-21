@@ -123,7 +123,7 @@ DELETE FROM [dbo].[c_op_dentista] WHERE id_dentista=12;
 ## Arquitetura
 
 ## Link do Vídeo de Apresentação 
-[Clique aqui]()
+[Clique aqui](https://www.youtube.com/watch?v=MxP7L1ZopFg&feature=youtu.be)
 
 ## Integrantes Odontofast
 - Felipe Amador - RM553528
