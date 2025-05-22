@@ -122,6 +122,9 @@ DELETE FROM [dbo].[c_op_dentista] WHERE id_dentista=12;
 
 ## Arquitetura
 
+![PipelineDevOps(4_Sprint) drawio](https://github.com/user-attachments/assets/eac3af47-8ade-4950-82fe-a21c312e65cc)
+
+
 ## Link do Vídeo de Apresentação 
 [Clique aqui](https://www.youtube.com/watch?v=MxP7L1ZopFg&feature=youtu.be)
 
